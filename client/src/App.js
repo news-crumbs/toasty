@@ -5,17 +5,22 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
+import FlipPage from "react-flip-page";
+
 const App = () =>
-  <Router>
-    <div>
-      <Nav />
-      <Switch>
-        <Route exact path="/" component={Books} />
-        <Route exact path="/books" component={Books} />
-        <Route exact path="/books/:id" component={Detail} />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </Router>;
+<FlipPage>
+<article>
+  <h1>My awesome first article</h1>
+  <p>My awesome first content</p>
+</article>
+<article>
+  <h1>My wonderful second article</h1>
+  <p>My wonderful second content</p>
+</article>
+<article>
+  <h1>My excellent third article</h1>
+  <p>My excellent third content</p>
+</article>
+</FlipPage>;
 
 export default App;
