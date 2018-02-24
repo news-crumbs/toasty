@@ -6,31 +6,32 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import FlipPage from "react-flip-page";
 
 
-class Books extends Component {
+class Articles extends Component {
   state = {
-    books: [],
+    articles: [],
     title: "",
     author: "",
     synopsis: ""
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadArticles();
   }
 
-  loadBooks = () => {
-    API.getBooks()
+  loadArticles = () => {
+    API.getArticle()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ articles: res.data, title: "", author: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
+  deleteArticle = id => {
+    API.deleteArticle(id)
+      .then(res => this.loadArticles())
       .catch(err => console.log(err));
   };
 
@@ -49,7 +50,7 @@ class Books extends Component {
         author: this.state.author,
         synopsis: this.state.synopsis
       })
-        .then(res => this.loadBooks())
+        .then(res => this.loadarticles())
         .catch(err => console.log(err));
     }
   };
@@ -58,46 +59,32 @@ class Books extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>What Books Should I Read?</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                value={this.state.author}
-                onChange={this.handleInputChange}
-                name="author"
-                placeholder="Author (required)"
-              />
-              <TextArea
-                value={this.state.synopsis}
-                onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
-              <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Book
-              </FormBtn>
-            </form>
+        <Col size="md-6 sm-12">
+            <FlipPage uncutPages ="true" showSwipehint="true" width="auto" orientation="horizontal" uncutpages="true" treshold="50" animationduration="300" pageBackground="#6497b1">
+              <article>
+                <h1>My awesome first article</h1>
+                <p>My awesome first content</p>
+                <p>Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumvLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+              </article>
+              <article>
+                <h1>My wonderful second article</h1>
+                <p>My wonderful second content</p>
+              </article>
+              <article>
+                <h1>My excellent third article</h1>
+                <p>My excellent third content</p>
+              </article>
+            </FlipPage>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>Articles On My List</h1>
             </Jumbotron>
-            {this.state.books.length ? (
+            {this.state.articles.length ? (
               <List>
-                {this.state.books.map(book => (
+                {this.state.articles.map(book => (
                   <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                    <Link to={"/articles/" + book._id}>
                       <strong>
                         {book.title} by {book.author}
                       </strong>
@@ -116,4 +103,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Articles;
