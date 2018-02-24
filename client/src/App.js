@@ -4,23 +4,16 @@ import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Flip from "./components/Flip";
 
-import FlipPage from "react-flip-page";
+const App = ()=>
+<Router>
+  <Flip />
+</Router>;
 
-const App = () =>
-<FlipPage>
-<article>
-  <h1>My awesome first article</h1>
-  <p>My awesome first content</p>
-</article>
-<article>
-  <h1>My wonderful second article</h1>
-  <p>My wonderful second content</p>
-</article>
-<article>
-  <h1>My excellent third article</h1>
-  <p>My excellent third content</p>
-</article>
-</FlipPage>;
+<div class="container" responsive="true">
+    
+  </div>;
+
 
 export default App;
