@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
-import FlipPage from "react-flip-page";
 import Flip from "../../components/Flip";
 
 
@@ -14,8 +13,9 @@ class Articles extends Component {
   state = {
     articles: [],
     title: "",
-    author: "",
-    synopsis: ""
+    url: "",
+    synopsis: "",
+    image: ""
   };
 
   componentDidMount() {
