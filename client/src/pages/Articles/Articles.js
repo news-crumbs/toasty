@@ -1,3 +1,4 @@
+//Main page of the Desktop App
 import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
@@ -46,12 +47,12 @@ class Articles extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.author) {
-      API.saveBook({
+      API.saveArticle({
         title: this.state.title,
         author: this.state.author,
         synopsis: this.state.synopsis
       })
-        .then(res => this.loadarticles())
+        .then(res => this.loadArticles())
         .catch(err => console.log(err));
     }
   };
@@ -60,30 +61,31 @@ class Articles extends Component {
     return (
       <Container fluid>
         <Row>
-        <Col size="md-6 sm-12">
+        <Col size="md-12 sm-12">
             <Flip/>
           </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Articles On My List</h1>
-            </Jumbotron>
-            {this.state.articles.length ? (
-              <List>
-                {this.state.articles.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/articles/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
+        <Col size="md-12 sm-12">
+          <Jumbotron>
+            <h2>Favorites/ Saved Articles</h2>
+          
+          {this.state.articles.length ? (
+            <List>
+              {this.state.articles.map(article => (
+                <ListItem key={article._id}>
+                  <Link to={"/articles/" + article._id}>
+                    <strong>
+                      {article.title} by {article.author}
+                    </strong>
+                  </Link>
+                  <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
+                </ListItem>
+              ))}
+            </List>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
+        </Jumbotron>
+        </Col>
         </Row>
       </Container>
     );
