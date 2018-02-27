@@ -1,4 +1,5 @@
 import React from "react";
+
 const Search = props =>
   <form>
     <div className="form-group">
