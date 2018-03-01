@@ -58,7 +58,13 @@ class Articles extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    webhose.search(this.state.topic, options, function (err, res) {})
+    webhose.search(this.state.topic, options, function (err, res) {
+      if(err) console.log(err);
+  
+      console.log(res.status);  // HTTP status code
+      console.log(res.msg);     // Status message
+      console.log(res.data);    // Webhose response body
+    })
 	 
   };
 
