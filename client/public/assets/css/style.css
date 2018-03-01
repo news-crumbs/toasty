@@ -1,0 +1,6 @@
+/*====================== Style Sheets Are Awesome =======================*/
+body {
+    background: url(../../assets/images/newspaper-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
