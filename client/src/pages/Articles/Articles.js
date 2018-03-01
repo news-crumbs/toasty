@@ -7,9 +7,20 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
-import Flip from "../../components/Flip";
+import Flip from "../../components/Flip"; 
+import webhose from 'webhose-nodejs';
+import whAPI from '../../utils/webHoseAPI';
+import APIKEY from "../../utils/keys";
 
+//const BASEURL = 'https://webhose.io/search';
+//const query = "&q=iphone";
 
+const options = {
+	format: 'json',
+	language: 'english',
+	site_type: 'news',
+	size: 10
+};
 
 class Articles extends Component {
   state = {
@@ -21,13 +32,13 @@ class Articles extends Component {
   };
 
   componentDidMount() {
-    this.loadArticles();
+    //this.loadArticles();
   }
 
   loadArticles = () => {
     API.getArticle()
       .then(res =>
-        this.setState({ articles: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ articles: res.data, title: "", url: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
@@ -47,15 +58,8 @@ class Articles extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.author) {
-      API.saveArticle({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
-      })
-        .then(res => this.loadArticles())
-        .catch(err => console.log(err));
-    }
+    webhose.search(this.state.topic, options, function (err, res) {})
+	 
   };
 
   render() {
@@ -75,7 +79,7 @@ class Articles extends Component {
                 <ListItem key={article._id}>
                   <Link to={"/articles/" + article._id}>
                     <strong>
-                      {article.title} by {article.author}
+                      {article.thread.title} by {article.thread.url}
                     </strong>
                   </Link>
                   <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
