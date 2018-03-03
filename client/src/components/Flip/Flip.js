@@ -5,12 +5,12 @@ import "./Flip.css";
 
 const Flip = () =>
 
-<FlipPage showSwipehint="true" width="auto" orientation="horizontal" uncutpages="true" treshold="50" animationduration="300" pageBackground="#6497b1">
+<FlipPage showSwipehint="true" width="auto" orientation="horizontal" uncutPages="true" treshold="50" animationduration="300" pageBackground="#6497b1">
 <article>
 <div class="col-md-6">
   <h1>My awesome first article</h1>
   <p>My awesome first content</p>
-  ><img className="img-responsive" src="../../assets/images/toast1.jpg" alt="logo"/>
+  <img className="img-responsive" src="../../assets/images/toast1.jpg" alt="logo"/>
 </div>
 </article>
 <article>
