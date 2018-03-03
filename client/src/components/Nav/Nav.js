@@ -1,5 +1,6 @@
 import React from "react";
 import "./nav.css"
+import Search from "./Search.js"
 
 const Nav = () =>
 <div class="container-fluid">
@@ -25,7 +26,7 @@ const Nav = () =>
           <div class="col-md-3 navbar-brand">
             <h4>
             
-                <a href="/favorites">Favoirtes</a>
+                <a href="/favorites">Favorites</a>
               
             </h4>
           </div>
