@@ -27,9 +27,8 @@ mongoose.connect(
 );
 
 // Start the API server
-var webhoseToken = process.env.REACT_APP_WEBHOSE_TOKEN
-var webhoseURI = process.env.REACT_APP_WEBHOSE_URI
+
 app.listen(PORT, function() {
-  console.log(`process env: \n token: ${process.env.WEBHOSE_TOKEN}\n uri: ${process.env.WEBHOSE_URI}`);
+  console.log(__filename);
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

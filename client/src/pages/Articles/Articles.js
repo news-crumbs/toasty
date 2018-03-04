@@ -9,13 +9,9 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import Flip from "../../components/Flip"; 
-import webhose from 'webhose-nodejs';
-// import BASEURL from '../../utils/webHoseAPI';
-// import APIKEY from "../../utils/keys";
 import { BASEURL, FILTER, APIKEY } from "../../utils";
 
-//const BASEURL = 'https://webhose.io/search';
-//const query = "&q=iphone";
+
 
 const options = {
 	format: 'json',
@@ -60,31 +56,6 @@ class Articles extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // webhose.search(this.state.topic, options, function (err, res) {
-    //   console.log(res);
-    //   // console.log(this.state.topic);
-    //   console.log(`process env: \n token: ${process.env.REACT_APP_WEBHOSE_TOKEN}\n uri: ${process.env.REACT_APP_WEBHOSE_URI}`);
-    //   if(err) console.log(err);
-  
-    //   console.log(res.status);  // HTTP status code
-    //   console.log(res.msg);     // Status message
-    //   console.log(res.data);    // Webhose response body
-    // })
-    /*
-    build axios url to this format:
-    https://webhose.io/filterWebContent?token=
-    apikey
-    &format=json&sort=crawled&q=
-    query
-    %3Asite_type:news
-    %3Alanguage%3Aenglish
-
-     https://webhose.io/filterWebContent?token=
-     a5cd9f56-4829-4d72-aed5-72af9e38b4b2
-     &format=json&q=
-     guns
-     %20sort=crawled%20site_type%3Anews%20language%3aenglish
-     */
     axios({
       method:'get',
       url:`${BASEURL + APIKEY + this.state.topic + FILTER}`,
