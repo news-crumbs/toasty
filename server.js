@@ -1,8 +1,11 @@
+// used to connect with environmental variables used with webhose
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const axios = require("axios");
 const PORT = process.env.PORT || 3001;
 
 // Configure body parser for AJAX requests
@@ -24,6 +27,9 @@ mongoose.connect(
 );
 
 // Start the API server
+var webhoseToken = process.env.REACT_APP_WEBHOSE_TOKEN
+var webhoseURI = process.env.REACT_APP_WEBHOSE_URI
 app.listen(PORT, function() {
+  console.log(`process env: \n token: ${process.env.WEBHOSE_TOKEN}\n uri: ${process.env.WEBHOSE_URI}`);
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
