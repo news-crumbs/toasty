@@ -12,14 +12,6 @@ import Flip from "../../components/Flip";
 import { BASEURL, FILTER, APIKEY } from "../../utils";
 
 
-
-const options = {
-	format: 'json',
-	language: 'english',
-	site_type: 'news',
-	size: 10
-};
-
 class Articles extends Component {
   state = {
     articles: [],
@@ -48,12 +40,21 @@ class Articles extends Component {
   };
 
   handleInputChange = event => {
+    console.log(event, event.target);
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-
+/*
+loadBooks = () => {
+    API.getBooks()
+      .then(res =>
+        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+      )
+      .catch(err => console.log(err));
+  };
+ */
   handleFormSubmit = event => {
     event.preventDefault();
     axios({
@@ -61,8 +62,9 @@ class Articles extends Component {
       url:`${BASEURL + APIKEY + this.state.topic + FILTER}`,
       responseType:'json'
     })
-      .then(function(response) {
-      console.log(response)
+      .then(res => {
+      console.log(res);
+      this.setState({ articles: res.data.posts, title: "", author: "", synopsis: "" })
     });
 	 
   };
