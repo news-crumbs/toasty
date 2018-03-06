@@ -1,5 +1,3 @@
-// used to connect with environmental variables used with webhose
-require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");

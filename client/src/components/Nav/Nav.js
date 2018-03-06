@@ -2,6 +2,7 @@ import React from "react";
 import "./nav.css"
 import Search from "./Search.js"
 
+
 const Nav = () =>
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-default bg-light">
