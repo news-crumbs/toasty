@@ -1,10 +1,16 @@
+import axios from 'axios';
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
+import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
+import { Col, Row, Container } from "../../components/Grid";
+import { List, ListItem } from "../../components/List";
+import { Input, FormBtn } from "../../components/Form";
+import Flip from "../../components/Flip"; 
+import { BASEURL, FILTER, APIKEY } from "../../utils";
 
-class Detail extends Component {
+class Favorite extends Component {
   state = {
     article: {}
   };
@@ -48,4 +54,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+export default Favorite;
