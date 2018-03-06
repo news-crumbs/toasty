@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Articles from "./pages/Articles";
-import Detail from "./pages/Detail";
+import Favorite from "./pages/Favorites";
+import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Flip from "./components/Flip";
@@ -13,18 +14,12 @@ const App = ()=>
   <Switch>
     <Route exact path="/" component={Articles} />
     <Route exact path="/articles" component={Articles} />
-    <Route exact path="/articles/:id" component={Detail} />
+    <Route exact path="/favorites" component={Favorite} />
+    <Route exact path="/login" component={Login} />
     <Route component={NoMatch} />
   </Switch>
 </div>
 </Router>
-//<Router>
-  //<Flip />
-//</Router>;
-
-//<div class="container" responsive="true">
-    
-  //</div>;
 
 
 export default App;
