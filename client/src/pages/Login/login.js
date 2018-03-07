@@ -31,17 +31,25 @@ class Login extends Component {
               <h1>
                 {this.state.article.title}
               </h1>
+              <Col size="md-3">
+                <form class="form">
+                  <label class="sr-only" for="inlineFormInput">Name</label>
+                  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe"></input>
+
+                  <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon">@</div>
+                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username"></input>
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </Col>
             </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>
-                {this.state.article.synopsis}
-              </p>
-            </article>
+
           </Col>
         </Row>
         <Row>
