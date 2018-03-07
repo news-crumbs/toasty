@@ -1,9 +1,43 @@
 import React from "react";
 import "./nav.css"
 import Search from "./Search.js"
+import {Input, FormBtn} from "../Form"
+import { BASEURL, FILTER, APIKEY } from "../../utils";
+import axios from 'axios';
+import API from "../../utils/API";
 
 
-const Nav = () =>
+class Nav extends React.Component {
+  state = {
+    topic:"",
+    articles:[],
+  }
+
+  handleInputChange = event => {
+    console.log(event, event.target);
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    axios({
+      method:'get',
+      url:`${BASEURL + APIKEY + this.state.topic + FILTER}`,
+      responseType:'json'
+    })
+      .then(res => {
+      debugger
+      this.setState({ articles: res.data.posts, title: "", author: "", synopsis: "" })
+    });
+	 
+  };
+
+render(){
+  return (
+
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-default bg-light">
     {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,9 +70,23 @@ const Nav = () =>
 
         <div class="col-md-5 navbar-brand">
         
-          <form class="form-inline my-2 my-lg-0"> 
-              <input id="searchBox" class="form-control mr-sm-6" type="search" placeholder="Search" aria-label="Search"></input>
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form class="form-inline my-2 my-lg-0">
+          <Input
+              value={this.state.topic}
+              onChange={this.handleInputChange}
+              name="topic"
+              placeholder="Topic (required)"
+            />
+            <FormBtn
+              // notice this is set to disabled and has a lower transparency unless, this.state.topic exists (or evaluates to anything other than false (as a boolean) or 0).
+                disabled={!(this.state.topic)}
+                onClick={this.handleFormSubmit}
+
+              >
+                Submit Request
+              </FormBtn> 
+              {/* <input id="searchBox" class="form-control mr-sm-6" type="search" placeholder="Search" aria-label="Search"></input>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
           </form>
         
         </div>
@@ -49,6 +97,8 @@ const Nav = () =>
 
   </nav>
 </div>
-;
+  )}
+};
+
 
 export default Nav;

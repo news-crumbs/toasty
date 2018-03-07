@@ -12,7 +12,7 @@ import { BASEURL, FILTER, APIKEY } from "../../utils";
 
 class Favorite extends Component {
   state = {
-    article: {}
+    articles:[], 
   };
   // When this component mounts, grab the article with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -21,52 +21,32 @@ class Favorite extends Component {
       .then(res => this.setState({ article: res.data }))
       .catch(err => console.log(err));
   }
-
+  
+//TODO: Need to populate favorite, possibly use redux?//
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>Favorites</h1>
-              <Input
-                value={this.state.topic}
-                onChange={this.handleInputChange}
-                name="topic"
-                placeholder="Topic (required)"
-              />
-              <FormBtn
-                // notice this is set to disabled and has a lower transparency unless, this.state.topic exists (or evaluates to anything other than false (as a boolean) or 0).
-                  disabled={!(this.state.topic)}
-                  onClick={this.handleFormSubmit}
-              >
-                Submit Request
-              </FormBtn>
-            
-              <h1>
-                {this.state.article.title}
-              </h1>
-            </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>
-                {this.state.article.synopsis}
-              </p>
-            </article>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/">← Back to Articles</Link>
-          </Col>
-        </Row>
-      </Container>
-    );
+      <Col size="md-12 sm-12">
+          <Jumbotron>
+            <h2>Favorites/ Saved Articles</h2>
+          
+          {this.state.articles.length ? (
+            <List>
+              {this.state.articles.map(article => (
+                <ListItem key={article._id}>
+                  <Link to={"/articles/" + article._id}>
+                    <strong>
+                      {article.thread.title} by {article.thread.url}
+                    </strong>
+                  </Link>
+                  <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
+                </ListItem>
+              ))}
+            </List>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
+        </Jumbotron>
+        </Col>
+    )};
   }
-}
-
 export default Favorite;
