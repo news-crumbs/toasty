@@ -10,7 +10,7 @@ import { Input, FormBtn } from "../../components/Form";
 import Flip from "../../components/Flip"; 
 import { BASEURL, FILTER, APIKEY } from "../../utils";
 
-class Favorite extends Component {
+class Favorites extends Component {
   state = {
     article: {}
   };
@@ -28,21 +28,6 @@ class Favorite extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>Favorites</h1>
-              <Input
-                value={this.state.topic}
-                onChange={this.handleInputChange}
-                name="topic"
-                placeholder="Topic (required)"
-              />
-              <FormBtn
-                // notice this is set to disabled and has a lower transparency unless, this.state.topic exists (or evaluates to anything other than false (as a boolean) or 0).
-                  disabled={!(this.state.topic)}
-                  onClick={this.handleFormSubmit}
-              >
-                Submit Request
-              </FormBtn>
-            
               <h1>
                 {this.state.article.title}
               </h1>
@@ -69,4 +54,4 @@ class Favorite extends Component {
   }
 }
 
-export default Favorite;
+export default Favorites;
