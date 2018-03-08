@@ -12,7 +12,7 @@ const App = () =>
     <div>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Articles} />
+        <Route exact path="/" component={Login} />
         <Route exact path="/articles" component={Articles} />
         <Route exact path="/favorites" component={Favorite} />
         <Route exact path="/login" component={Login} />

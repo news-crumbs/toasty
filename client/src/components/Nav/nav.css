@@ -8,6 +8,10 @@ body {
     max-height: 270px;
 }
 
+.navbar-brand{
+    text-align: center;
+}
+
 .navbar-collapse form[role="search"] {
     position: absolute;
     top: 0px;
