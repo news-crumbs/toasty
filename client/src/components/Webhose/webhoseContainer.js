@@ -38,7 +38,7 @@
 //               {this.state.result.Title
 //                 ? <ArticleDetail
 //                     title={this.state.result.Title}
-                    
+
 //                   />
 //                 : <h3>No Results to Display</h3>}
 //             </Panel>

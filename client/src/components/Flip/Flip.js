@@ -5,23 +5,23 @@ import "./Flip.css";
 
 const Flip = ({ articles, maxLength = 600, linkLength = 50 }) =>
 
-<FlipPage width="auto" height="720" orientation="horizontal" uncutPages="true" treshold="50" animationduration="300" pageBackground="#ccc">
-{articles.map( (a, i) => {
-  return(
-    <article>
-      <div class ="col-md-6">
-      <h1>{a.title}</h1>
-      <p>{a.text.length > maxLength ? (a.text.substring(0,600) + "...") : a.text }</p>
-      <p> Read the article here:
-        <a href={a.url}>{a.url.length > linkLength ? (a.url.substring(0,50) + "...") : a.url }</a>
-      </p>
-      </div>
-    </article>
-  )
-}
-)}
+  <FlipPage width="auto" height="720" orientation="horizontal" uncutPages="true" treshold="50" animationduration="300" pageBackground="#ccc">
+    {articles.map((a, i) => {
+      return (
+        <article>
+          <div class="col-md-6">
+            <h1>{a.title}</h1>
+            <p>{a.text.length > maxLength ? (a.text.substring(0, 600) + "...") : a.text}</p>
+            <p> Read the article here:
+        <a href={a.url}>{a.url.length > linkLength ? (a.url.substring(0, 50) + "...") : a.url}</a>
+            </p>
+          </div>
+        </article>
+      )
+    }
+    )}
 
-</FlipPage>;
+  </FlipPage>;
 
 export default Flip;
 

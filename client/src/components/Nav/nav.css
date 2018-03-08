@@ -1,11 +1,13 @@
 body {
     padding: 15px 0px;
 }
+
 .navbar-collapse {
     position: relative;
     padding-top: 30px !important;
     max-height: 270px;
 }
+
 .navbar-collapse form[role="search"] {
     position: absolute;
     top: 0px;
@@ -15,6 +17,7 @@ body {
     margin: 0px;
     z-index: 0;
 }
+
 .navbar-collapse form[role="search"] button,
 .navbar-collapse form[role="search"] input {
     padding: 8px 12px;
@@ -26,6 +29,7 @@ body {
     box-shadow: none;
     outline: none;
 }
+
 .navbar-collapse form[role="search"] input {
     padding: 16px 12px;
     font-size: 14pt;
@@ -33,11 +37,14 @@ body {
     color: rgb(160, 160, 160);
     box-shadow: none;
 }
+
 .navbar-collapse form[role="search"] button[type="reset"] {
     display: none;
 }
 
-#searchBox{width:330px !important;}
+#searchBox {
+    width: 330px !important;
+}
 
 @media (min-width: 768px) {
     .navbar-collapse {
@@ -54,7 +61,7 @@ body {
     .navbar-collapse form[role="search"] input {
         font-size: 18pt;
         opacity: 0;
-        display: none;            
+        display: none;
         height: 50px;
     }
     .navbar-collapse form[role="search"].active {

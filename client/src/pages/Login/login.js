@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
-import Flip from "../../components/Flip"; 
+import Flip from "../../components/Flip";
 import { BASEURL, FILTER, APIKEY } from "../../utils";
 
 class Login extends Component {
@@ -44,7 +44,7 @@ class Login extends Component {
                     <div class="input-group-addon">@</div>
                     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username"></input>
                   </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
               </Col>
               <Col size="md-2"><h2 className="center">or</h2></Col>
@@ -59,7 +59,7 @@ class Login extends Component {
                     <div class="input-group-addon">@</div>
                     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username"></input>
                   </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                  <button type="submit" class="btn btn-primary">Register</button>
                 </form>
               </Col>
             </Jumbotron>

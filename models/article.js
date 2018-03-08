@@ -7,7 +7,7 @@ const articleSchema = new Schema({
   synopsis: String,
   url: { type: String, required: true },
   image: { type: String, required: true },
- 
+
 });
 
 const Article = mongoose.model("Article", articleSchema);

@@ -7,19 +7,19 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Flip from "./components/Flip";
 
-const App = ()=>
-<Router>
-<div>
-  <Nav />
-  <Switch>
-    <Route exact path="/" component={Articles} />
-    <Route exact path="/articles" component={Articles} />
-    <Route exact path="/favorites" component={Favorite} />
-    <Route exact path="/login" component={Login} />
-    <Route component={NoMatch} />
-  </Switch>
-</div>
-</Router>
+const App = () =>
+  <Router>
+    <div>
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={Articles} />
+        <Route exact path="/articles" component={Articles} />
+        <Route exact path="/favorites" component={Favorite} />
+        <Route exact path="/login" component={Login} />
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>
 
 
 export default App;
