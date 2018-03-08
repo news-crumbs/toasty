@@ -20,6 +20,7 @@ keys.js
 .env
 development.env
 production.env
+.vscode
 
 npm-debug.log*
 yarn-debug.log*

@@ -13,13 +13,3 @@ const articleSchema = new Schema({
 const Article = mongoose.model("Article", articleSchema);
 
 module.exports = Article;
-
-/*
-headline/title
-author from url if it becomes easy to display
-synopsis
-url to full article
-link to Image
-  fullsize image displayed on front-end for article detail page
-
-*/
