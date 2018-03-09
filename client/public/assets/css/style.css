@@ -5,6 +5,49 @@ body {
     background-repeat: no-repeat;
 }
 
+
+
+/*============================ Login Page ============================*/
+.login-title {
+    background: #5cb85c;
+    text-align: center;
+    padding: 20px 0px;
+    margin: 0px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.login-bkg {
+    background: #fff;
+    text-align: center;
+    box-shadow: 0px 0px 15px #000;
+    border-radius: 10px;
+}
+/*Submit button styles*/
+button.btn.btn-primary {
+    background: #5cb85c;
+    border-color: transparent;
+    margin: 20px 0px;
+}
+
+/*Back to articles button*/
+p.grn-btn {
+    background: #5cb85c;
+    padding: 10px 0px;
+    text-align: center;
+    width: 50%;
+    border-radius: 10px;
+}
+
+p.grn-btn:hover {
+    background: #236623;
+}
+
+p.grn-btn a{
+    color: #fff;
+    text-decoration: none;
+}
+
 /*============================= Footer ===============================*/
 footer {
     background: #5cb85c;
@@ -13,6 +56,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 99999;
 }
 
 footer p {
