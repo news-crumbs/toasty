@@ -41,8 +41,8 @@ p.grn-btn {
     background: #5cb85c;
     padding: 10px 0px;
     text-align: center;
-    width: 50%;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 p.grn-btn:hover {
@@ -53,6 +53,8 @@ p.grn-btn a{
     color: #fff;
     text-decoration: none;
 }
+
+
 
 /*============================= Footer ===============================*/
 footer {
@@ -76,5 +78,14 @@ footer p {
     p.grn-btn {
         width: 200px;
         margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .col-md-1 {
+        min-height: 0px!important;
+    }
+
+    .login-bkg .form:last-of-type {
+        margin-top: 10px;
     }
   }

@@ -69,8 +69,12 @@ class Login extends Component {
           </Col>
         </Row>
         <Row>
+        <Col size="md-5">
+          </Col>
           <Col size="md-2">
             <p className="grn-btn"><Link to="/">← Back to Articles</Link></p>
+          </Col>
+          <Col size="md-5">
           </Col>
         </Row>
       </Container>
