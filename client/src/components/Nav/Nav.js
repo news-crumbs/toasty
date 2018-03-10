@@ -1,4 +1,5 @@
 import React from "react";
+import { Col, Row, Container } from "../../components/Grid";
 import "./nav.css"
 import Search from "./Search.js"
 import { Input, FormBtn } from "../Form"
@@ -38,42 +39,31 @@ class Nav extends React.Component {
   render() {
     return (
 
-      <div class="container-fluid">
+      <Container fluid>
         <nav class="navbar navbar-expand-lg navbar-default bg-light">
-
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="/Login">Login</a>
-
-            <div class="container">
-              <div class="col-md-2">
-              </div>
+            <Container fluid>
+              <Col size="md-2">
+              </Col>
                 <div class="col-md-3 navbar-brand">
                   <h4>
-
                     <a href="/Articles">News Crumbs</a>
-
                   </h4>
                 </div>
-
-              <div class="col-md-2">
-              </div>
-              
+              <Col size="md-2">
+              </Col>
                 <div class="col-md-3 navbar-brand">
                   <h4>
-
                     <a href="/favorites">Favorites</a>
-
                   </h4>
                 </div>
-              <div class="col-md-2">
-              </div>
-
-            </div>
-
+              <Col size="md-2">
+              </Col>
+            </Container>
           </div>
-
         </nav>
-      </div>
+      </Container>
     )
   }
 };
