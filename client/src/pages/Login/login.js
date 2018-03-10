@@ -30,11 +30,13 @@ class Login extends Component {
               <h1>
                 {this.state.article.title}
               </h1>
-              <Col size="md-2">
+              <Col size="md-1">
               </Col>
-              <Col size="md-3">
+              <Col size="md-5">
                 <div class="login-bkg">
                   <form class="form">
+                  <Col size="md-1">
+                </Col>
                     <p class="login-title">Current Users</p>
                     <label class="sr-only" for="inlineFormInput">Name</label>
                     <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
@@ -45,15 +47,12 @@ class Login extends Component {
                   </form>
                 </div>
               </Col>
-              <Col size="md-2"><h2 className="center">or</h2></Col>
-              <Col size="md-3">
+              <Col size="md-5">
               <div class="login-bkg">
                   <form class="form">
                   <p class="login-title">New Users</p>
                     <label class="sr-only" for="inlineFormInput">Name</label>
                     <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
-                    <label class="sr-only" for="inlineFormInputGroup">Email</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Email"></input>
                     <label class="sr-only" for="inlineFormInputGroup">Password</label>
                     <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
                     <button type="submit" class="btn btn-primary">Register</button>
@@ -61,7 +60,7 @@ class Login extends Component {
                 </div>
               </Col>
           </Col>
-          <Col size="md-2">
+          <Col size="md-1">
           </Col>
         </Row>
         <Row>
