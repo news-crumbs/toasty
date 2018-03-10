@@ -4,15 +4,30 @@ import "./Flip.css";
 import {connect} from 'react-redux';
 
 
-const Flip = ({ articles, maxLength = 600, linkLength = 50, dispatch }) =>
+const Flip = ({ articles, maxLength = 1800, linkLength = 50, dispatch }) =>
 
-  <FlipPage width="auto" height="720" orientation="horizontal" uncutPages="true" treshold="50" animationduration="300" pageBackground="#fff">
+  <FlipPage 
+  showSwipeHint="true" 
+  width="auto" 
+  height="720" 
+  orientation="horizontal" 
+  uncutPages="true" 
+  treshold="50" 
+  animationduration="300" 
+  pageBackground="#fff" 
+  loopForever="true"
+  style={{
+    boxShadow: "0px 0px 15px #000",
+    borderRadius: "10px",
+  }}>
     {articles.map((a, i) => {
       return (
         <article>
-          <div className="col-md-6">
-            <h1>{a.title}</h1>
-            <p>{a.text.length > maxLength ? (a.text.substring(0, 600) + "...") : a.text}</p>
+          <div className="col-md-12">
+            <h1 className="title">{a.title}</h1>
+            <hr />
+            <img src={a.thread.main_image} height="300px" width="600px" style={{float: "left", marginRight: "10px"}} />
+            <p>{a.text.length > maxLength ? (a.text.substring(0, 1800) + "...") : a.text}</p>
             <p> Read the article here:
         <a href={a.url}>{a.url.length > linkLength ? (a.url.substring(0, 50) + "...") : a.url}</a>
             </p>

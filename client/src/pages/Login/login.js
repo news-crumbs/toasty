@@ -78,7 +78,9 @@ class Login extends Component {
       <Container fluid>
         <Row>
           <Col size="md-12">
-              <Col size="md-5">
+          <Col size="md-1">
+          </Col>
+              <Col size="md-4">
                 <div className="login-bkg">
                   <form className="form">
                   <Col size="md-1">
@@ -93,7 +95,9 @@ class Login extends Component {
                   </form>
                 </div>
               </Col>
-              <Col size="md-5">
+              <Col size="md-2">
+              </Col>
+              <Col size="md-4">
               <div className="login-bkg">
                   <form className="form">
                   <p className="login-title">New Users</p>
@@ -104,6 +108,8 @@ class Login extends Component {
                     <button type="submit" onClick={this.handleFormSubmit} className="btn btn-primary">Register</button>
                   </form>
                 </div>
+              </Col>
+              <Col size="md-1">
               </Col>
           </Col>
           <Col size="md-1">
@@ -118,7 +124,7 @@ class Login extends Component {
         <Col size="md-5">
           </Col>
           <Col size="md-2">
-            <p className="grn-btn"><Link to="/">← Back to Articles</Link></p>
+            <p className="grn-btn"><Link to="./Articles">← Back to Articles</Link></p>
           </Col>
           <Col size="md-5">
           </Col>
