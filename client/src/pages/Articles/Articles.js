@@ -22,7 +22,7 @@ class Articles extends Component {
   };
 
   componentDidMount() {
-    //this.loadArticles();
+    //this.loadArticles("");
   }
 
   loadArticles = () => {
