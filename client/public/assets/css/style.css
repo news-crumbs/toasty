@@ -27,7 +27,13 @@ body {
 button.btn.btn-primary {
     background: #5cb85c;
     border-color: transparent;
-    margin: 20px 0px;
+    margin: 15px 0px;
+    margin-top: 0px;
+}
+
+form.form input {
+    width: 80%;
+    margin: 15px auto;
 }
 
 /*Back to articles button*/
@@ -63,3 +69,12 @@ footer p {
     color: #fff;
     margin: 0px;
 }
+
+
+/*Responsiveness*/
+@media screen and (max-width: 990px) {
+    p.grn-btn {
+        width: 200px;
+        margin: 0 auto;
+    }
+  }
