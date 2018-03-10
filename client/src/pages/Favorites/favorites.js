@@ -25,28 +25,42 @@ class Favorite extends Component {
   //TODO: Need to populate favorite, possibly use redux?//
   render() {
     return (
-      <Col size="md-12 sm-12">
-        <Jumbotron>
-          <h2>Favorites/ Saved Articles</h2>
-
+      <Container fluid>
           {this.state.articles.length ? (
-            <List>
+            <Container fluid>
               {this.state.articles.map(article => (
-                <ListItem key={article._id}>
-                  <Link to={"/articles/" + article._id}>
-                    <strong>
-                      {article.thread.title} by {article.thread.url}
-                    </strong>
-                  </Link>
+              <Col size="md-3">
+                <div class="login-bkg">
+                  <form class="form">
+                  <a href={article.url}>
+                    <strong class="login-title">{article.thread.title} by {article.thread.url}</strong>
+                  </a>
+                  <p>{article.text}</p>
                   <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
-                </ListItem>
+                  </form>
+                </div>
+              </Col>
               ))}
-            </List>
+            </Container>
           ) : (
-              <h3>No Results to Display</h3>
+            <Container fluid>
+              <Row>
+                <Col size="md-5"></Col>
+                  <Col size="md-2">
+                    <div class="login-bkg">
+                      <form class="form">
+                        <p class="login-title">You no likey?!</p>
+                        <label class="sr-only" for="inlineFormInput">Name</label>
+                        <p>Go star some articles to add them to your favorites page!</p>
+                        <Link to="/articles"><button type="submit" class="btn btn-primary">← Back to Articles</button></Link>
+                      </form>
+                    </div>
+                  </Col>
+                <Col size="md-5"></Col>
+              </Row>
+            </Container>
             )}
-        </Jumbotron>
-      </Col>
+      </Container>
     )
   };
 }
