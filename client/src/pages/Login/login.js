@@ -13,7 +13,9 @@ import { BASEURL, FILTER, APIKEY } from "../../utils";
 class Login extends Component {
   state = {
     nom: "",
-    password: ""
+    password: "",
+    newNom:"",
+    newPass:""
   };
   // When this component mounts, grab the article with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -28,8 +30,8 @@ class Login extends Component {
     console.log(this.state);
     var apiBaseUrl = "http://localhost:3000/api/users";
     var payload={
-      "nom":this.state.nom,
-      "password":this.state.password
+      "nom":this.state.newNom,
+      "password":this.state.newPass
       };
       axios.post(apiBaseUrl, payload)
       .then(function (response) {
@@ -52,6 +54,7 @@ class Login extends Component {
       }
 
       handleInputChange = event => {
+        console.log(event.target.name);
         const { name, value } = event.target;
         this.setState({
           [name]: value
@@ -82,10 +85,10 @@ class Login extends Component {
                 </Col>
                     <p class="login-title">Current Users</p>
                     <label class="sr-only" for="inlineFormInput">Name</label>
-                    <input type="text" value= {this.state.nom} onChange= {this.handleInputChange} class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
+                    <input type="text" value= {this.state.nom} name="nom" onChange= {this.handleInputChange} class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
                     
                     <label class="sr-only" for="inlineFormInputGroup">Password</label>
-                    <input type="text" value= {this.state.password} onChange= {this.handleInputChange} class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
+                    <input type="text" value= {this.state.password} onChange= {this.handleInputChange} name="password" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
                     <button type="submit" onClick={this.handleFormSubmit} class="btn btn-primary">Submit</button>
                   </form>
                 </div>
@@ -95,9 +98,9 @@ class Login extends Component {
                   <form class="form">
                   <p class="login-title">New Users</p>
                     <label class="sr-only" for="inlineFormInput">Name</label>
-                    <input type="text" value={this.state.nom} onChange={this.handleInputChange} class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
+                    <input type="text" value={this.state.newNom} onChange={this.handleInputChange} name="newNom" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
                     <label class="sr-only" for="inlineFormInputGroup">Password</label>
-                    <input type="text" value={this.state.password} onChange={this.handleInputChange} class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
+                    <input type="text" value={this.state.newPass} onChange={this.handleInputChange} name="newPass" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
                     <button type="submit" onClick={this.handleFormSubmit} class="btn btn-primary">Register</button>
                   </form>
                 </div>
