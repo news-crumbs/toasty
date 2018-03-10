@@ -79,29 +79,29 @@ class Login extends Component {
         <Row>
           <Col size="md-12">
               <Col size="md-5">
-                <div class="login-bkg">
-                  <form class="form">
+                <div className="login-bkg">
+                  <form className="form">
                   <Col size="md-1">
                 </Col>
-                    <p class="login-title">Current Users</p>
-                    <label class="sr-only" for="inlineFormInput">Name</label>
-                    <input type="text" value= {this.state.nom} name="nom" onChange= {this.handleInputChange} class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
+                    <p className="login-title">Current Users</p>
+                    <label className="sr-only" htmlFor="inlineFormInput">Name</label>
+                    <input type="text" value= {this.state.nom} name="nom" onChange= {this.handleInputChange} className="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
                     
-                    <label class="sr-only" for="inlineFormInputGroup">Password</label>
-                    <input type="text" value= {this.state.password} onChange= {this.handleInputChange} name="password" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
-                    <button type="submit" onClick={this.handleFormSubmit} class="btn btn-primary">Submit</button>
+                    <label className="sr-only" htmlFor="inlineFormInputGroup">Password</label>
+                    <input type="text" value= {this.state.password} onChange= {this.handleInputChange} name="password" className="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
+                    <button type="submit" onClick={this.handleFormSubmit} className="btn btn-primary">Submit</button>
                   </form>
                 </div>
               </Col>
               <Col size="md-5">
-              <div class="login-bkg">
-                  <form class="form">
-                  <p class="login-title">New Users</p>
-                    <label class="sr-only" for="inlineFormInput">Name</label>
-                    <input type="text" value={this.state.newNom} onChange={this.handleInputChange} name="newNom" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
-                    <label class="sr-only" for="inlineFormInputGroup">Password</label>
-                    <input type="text" value={this.state.newPass} onChange={this.handleInputChange} name="newPass" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
-                    <button type="submit" onClick={this.handleFormSubmit} class="btn btn-primary">Register</button>
+              <div className="login-bkg">
+                  <form className="form">
+                  <p className="login-title">New Users</p>
+                    <label className="sr-only" htmlFor="inlineFormInput">Name</label>
+                    <input type="text" value={this.state.newNom} onChange={this.handleInputChange} name="newNom" className="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
+                    <label className="sr-only" htmlFor="inlineFormInputGroup">Password</label>
+                    <input type="text" value={this.state.newPass} onChange={this.handleInputChange} name="newPass" className="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
+                    <button type="submit" onClick={this.handleFormSubmit} className="btn btn-primary">Register</button>
                   </form>
                 </div>
               </Col>

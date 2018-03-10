@@ -9,6 +9,7 @@ import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import Flip from "../../components/Flip";
 import { BASEURL, FILTER, APIKEY } from "../../utils";
+import {connect} from 'react-redux';
 
 class Favorite extends Component {
   state = {
@@ -24,19 +25,20 @@ class Favorite extends Component {
 
   //TODO: Need to populate favorite, possibly use redux?//
   render() {
+    let maxLength=600
     return (
       <Container fluid>
-          {this.state.articles.length ? (
+          {this.props.favorites.length ? (
             <Container fluid>
-              {this.state.articles.map(article => (
+              {this.props.favorites.map(article => (
               <Col size="md-3">
-                <div class="login-bkg">
-                  <form class="form">
-                  <a href={article.url}>
-                    <strong class="login-title">{article.thread.title} by {article.thread.url}</strong>
+                <div className="login-bkg">
+                  <form className="form">
+                  <a href={article.url} target="_blank">
+                    <strong className="login-title">{article.title} by {article.author}</strong>
                   </a>
-                  <p>{article.text}</p>
-                  <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
+                  <p>{article.text.length > maxLength ? (article.text.substring(0, 600) + "...") : article.text}</p>
+                  <DeleteBtn onClick={() => this.props.dispatch({ type: 'REMOVE_FAVORITE' ,favorite: article})} />
                   </form>
                 </div>
               </Col>
@@ -47,12 +49,12 @@ class Favorite extends Component {
               <Row>
                 <Col size="md-5"></Col>
                   <Col size="md-2">
-                    <div class="login-bkg">
-                      <form class="form">
-                        <p class="login-title">You no likey?!</p>
-                        <label class="sr-only" for="inlineFormInput">Name</label>
+                    <div className="login-bkg">
+                      <form className="form">
+                        <p className="login-title">You no likey?!</p>
+                        <label className="sr-only" htmlFor="inlineFormInput">Name</label>
                         <p>Go star some articles to add them to your favorites page!</p>
-                        <Link to="/articles"><button type="submit" class="btn btn-primary">← Back to Articles</button></Link>
+                        <Link to="/articles"><button type="submit" className="btn btn-primary">← Back to Articles</button></Link>
                       </form>
                     </div>
                   </Col>
@@ -64,4 +66,9 @@ class Favorite extends Component {
     )
   };
 }
-export default Favorite;
+
+//Should be called mapStoreToProps, will pull favorites from the store//
+const mapStateToProps = (state) => {
+  return { favorites: state.favorites}
+}
+export default connect(mapStateToProps)(Favorite);

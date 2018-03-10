@@ -6,6 +6,7 @@ import { Input, FormBtn } from "../Form"
 import { BASEURL, FILTER, APIKEY } from "../../utils";
 import axios from 'axios';
 import API from "../../utils/API";
+import {Link} from "react-router-dom";
 
 
 class Nav extends React.Component {
@@ -40,22 +41,22 @@ class Nav extends React.Component {
     return (
 
       <Container fluid>
-        <nav class="navbar navbar-expand-lg navbar-default bg-light">
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/Login">Login</a>
+        <nav className="navbar navbar-expand-lg navbar-default bg-light">
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <Link className="navbar-brand" to="/Login">Login</Link>
             <Container fluid>
               <Col size="md-2">
               </Col>
-                <div class="col-md-3 navbar-brand">
+                <div className="col-md-3 navbar-brand">
                   <h4>
-                    <a href="/Articles">News Crumbs</a>
+                    <Link to="/Articles">News Crumbs</Link>
                   </h4>
                 </div>
               <Col size="md-2">
               </Col>
-                <div class="col-md-3 navbar-brand">
+                <div className="col-md-3 navbar-brand">
                   <h4>
-                    <a href="/favorites">Favorites</a>
+                    <Link to="/favorites">Favorites</Link>
                   </h4>
                 </div>
               <Col size="md-2">
