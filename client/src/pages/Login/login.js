@@ -17,73 +17,102 @@ class Login extends Component {
     newNom:"",
     newPass:""
   };
-  constructor(props) {
-    super(props)
-    this.validateInput = this.validateInput.bind(this)
-    this.validateDB = this.validateDB.bind(this)
-  }
+  // not sure if this binding technique is correct
+  // constructor(props) {
+  //   super(props)
+  //   this.validateInput = this.validateInput.bind(this)
+  //   this.validateDB = this.validateDB.bind(this)
+  //   this.handleLogin = this.handleLogin.bind(this)
+  // }
   
-    validateInput(newUser, cb) {
-      // if( newUser.name === ""){
-      //     $("#noToast").text(`Please enter a username.`);
-      //     $("#name").val("");
-      // } else if ( newUser.password === ""){
-      //     $("#noToast").text(`Please enter a password.`);
-      //     $("#pass").val("");
-      // } else{
-      //     cb(newUser);
-      // }
-      console.log('validating input');
-    };
+    // validateInput(newUser, cb) {
+    //   // if( newUser.name === ""){
+    //   //     $("#noToast").text(`Please enter a username.`);
+    //   //     $("#name").val("");
+    //   // } else if ( newUser.password === ""){
+    //   //     $("#noToast").text(`Please enter a password.`);
+    //   //     $("#pass").val("");
+    //   // } else{
+    //   //     cb(newUser);
+    //   // }
+    //   console.log('validating input');
+    // };
 
-    validateDB () {
-      // $.get("/api/users/" + newUser.name, function(data) {
-      //     if (data) {
-      //     console.log("Here's the response from the get with the user's name", data);
-      //     $("#name").val("");
-      //     $("#pass").val("");
-      //     $("#noToast").text(`Sorry, ${newUser.name} is taken.`);
-      //     } else {
-      //         post(newUser)
-      //     }
-      // });
-      console.log('validating DB');
+    // validateDB () {
+    //   // $.get("/api/users/" + newUser.name, function(data) {
+    //   //     if (data) {
+    //   //     console.log("Here's the response from the get with the user's name", data);
+    //   //     $("#name").val("");
+    //   //     $("#pass").val("");
+    //   //     $("#noToast").text(`Sorry, ${newUser.name} is taken.`);
+    //   //     } else {
+    //   //         post(newUser)
+    //   //     }
+    //   // });
+    //   console.log('validating DB');
 
-    };
+    // };
 
-    handleLogin = event => {
-      event.preventDefault();
-      console.log('checking DB for user');
-      validateInput(this.state, validateDB);
-    };
+    // login = (event) => {
+    //   event.preventDefault();
+    //   console.log('checking DB for user');
+    //   var apiBaseUrl = "http://localhost:3000/api/users";
+    //   let brah={
+    //     "nom":this.state.newNom,
+    //     "password":this.state.newPass
+    //   };
+    //   axios.get(apiBaseUrl, brah)
+    //     .then(function(response){
+    //       console.log(response);
+    //     }
+    // }
 
     handleRegistration = event => {
       event.preventDefault();
       console.log(this.state);
       var apiBaseUrl = "http://localhost:3000/api/users";
-      var payload={
+      let payload={
         "nom":this.state.newNom,
         "password":this.state.newPass
         };
-        axios.post(apiBaseUrl, payload)
-          .then(function (response) {
-          console.log(response);
-          if(response.data.code == 200){
-          console.log("Login successfull");
-          }
-          else if(response.data.code == 204){
-          console.log("Username password do not match");
-          alert("username password do not match")
-          }
-          else{
-          console.log("Username does not exists");
-          alert("Username does not exist");
-          }
-          })
-          .catch(function (error) {
-          console.log(error);
+        if(payload.nom === payload.password){
+          alert(`Username and Password must not match`);
+          console.log(`user name and password must not match`);
+          this.setState({
+            newNom: "",
+            newPass: ""
           });
-    };
+        }else{
+          axios.get(apiBaseUrl, payload.nom)
+            .then(function(response){
+              console.log(response);
+              console.log(response.status);
+              if(response.status === 200){
+                console.log(`username ${payload.nom} taken`);
+                alert(`username ${payload.nom} taken`); 
+                // too much scoping isssues to use this.setState??
+                // this.setState({
+                //   newNom: "",
+                //   newPass: ""
+                // });
+              } else {
+                axios.post(apiBaseUrl, payload)
+                  .then(function (response) {
+                    console.log(response);
+                    console.log(response.status);
+                    if(response.status === 200){
+                    console.log("Login successful");
+                    window.location.replace("/Articles");
+                    }
+                  })
+                  .catch(function (error) {
+                  console.log(error);
+                  });
+                }
+            });
+        }
+
+    }
 
     handleInputChange = event => {
       console.log(event.target.name);
@@ -91,19 +120,7 @@ class Login extends Component {
       this.setState({
         [name]: value
       });
-    };
-  //   axios({
-  //     method:'post',
-  //     user: 
-  //     url:`${BASEURL + APIKEY + this.state.topic + FILTER}`,
-  //     responseType:'json'
-  //   })
-  //     .then(res => {
-  //     console.log(res);
-  //     this.setState({ articles: res.data.posts, title: "", author: "", synopsis: "" })
-  //   });
-	 
-  // };
+    }
 
   render() {
     return (
@@ -126,9 +143,9 @@ class Login extends Component {
                 </div>
               </Col>
               <Col size="md-5">
-              <div class="login-bkg">
+                <div class="login-bkg">
                   <form class="form">
-                  <p class="login-title">New Users</p>
+                    <p class="login-title">New Users</p>
                     <label class="sr-only" for="inlineFormInput">Name</label>
                     <input type="text" value={this.state.newNom} onChange={this.handleInputChange} name="newNom" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
                     <label class="sr-only" for="inlineFormInputGroup">Password</label>
@@ -143,11 +160,10 @@ class Login extends Component {
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
-
           </Col>
         </Row>
         <Row>
-        <Col size="md-5">
+          <Col size="md-5">
           </Col>
           <Col size="md-2">
             <p className="grn-btn"><Link to="/">← Back to Articles</Link></p>
@@ -158,6 +174,6 @@ class Login extends Component {
       </Container>
     );
   }
-}
+};
 
 export default Login;
