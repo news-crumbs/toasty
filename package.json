@@ -26,6 +26,7 @@
     "express": "^4.15.4",
     "mongoose": "^4.11.7",
     "react-flip-page": "^0.14.1",
-    "webhose-nodejs": "^0.1.4"
+    "webhose-nodejs": "^0.1.4",
+    "yarn": "^1.5.1"
   }
 }
