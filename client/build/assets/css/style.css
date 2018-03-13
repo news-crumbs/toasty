@@ -1,0 +1,101 @@
+/*====================== Style Sheets Are Awesome =======================*/
+body {
+    background: url(../../assets/images/newspaper-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+/*============================ Login Page ============================*/
+.top-m {
+    margin-top: 10%;
+}
+
+.login-title {
+    background: #5cb85c;
+    text-align: center;
+    padding: 20px 0px;
+    margin: 0px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.login-bkg {
+    background: #fff;
+    text-align: center;
+    box-shadow: 0px 0px 15px #000;
+    border-radius: 10px;
+}
+/*Submit button styles*/
+button.btn.btn-primary {
+    background: #5cb85c;
+    border-color: transparent;
+    margin: 15px 0px;
+    margin-top: 0px;
+}
+
+form.form input {
+    width: 80%;
+    margin: 15px auto;
+}
+
+/*Back to articles button*/
+p.grn-btn {
+    background: #5cb85c;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px #000;
+}
+
+p.grn-btn:hover {
+    background: #236623;
+}
+
+p.grn-btn a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/*============================= Articles ===============================*/
+
+
+#flipDiv{
+    padding-top: 50px;
+}
+
+/*============================= Footer ===============================*/
+footer {
+    background: #5cb85c;
+    padding: 20px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+footer p {
+    color: #fff;
+    margin: 0px;
+}
+
+
+/*Responsiveness*/
+@media screen and (max-width: 990px) {
+    p.grn-btn {
+        width: 200px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .col-md-1 {
+        min-height: 0px!important;
+    }
+
+    .login-bkg .form:last-of-type {
+        margin-top: 10px;
+    }
+  }
