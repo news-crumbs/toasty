@@ -26,7 +26,7 @@ const Flip = ({ articles, maxLength = 1800, linkLength = 50, dispatch }) =>
           <div className="col-md-12">
             <h1 className="title">{a.title}</h1>
             <hr />
-            <img src={a.thread.main_image} height="300px" width="600px" style={{float: "left", marginRight: "10px"}} />
+            <img src={a.thread.main_image} height="auto" width="auto" style={{float: "left", marginRight: "10px", maxWidth: "500px"}} />
             <p>{a.text.length > maxLength ? (a.text.substring(0, 1800) + "...") : a.text}</p>
             <p> Read the article here:
         <a href={a.url}>{a.url.length > linkLength ? (a.url.substring(0, 50) + "...") : a.url}</a>
