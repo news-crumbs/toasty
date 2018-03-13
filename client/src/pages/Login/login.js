@@ -131,7 +131,7 @@ class Login extends Component {
                   <input type="text" value= {this.state.nom} name="nom" onChange= {this.handleInputChange} class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
                   
                   <label class="sr-only" for="inlineFormInputGroup">Password</label>
-                  <input type="text" value= {this.state.password} onChange= {this.handleInputChange} name="password" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
+                  <input type="password" value= {this.state.password} onChange= {this.handleInputChange} name="password" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
                   <button type="submit" onClick={this.handleLogin} class="btn btn-primary">Submit</button>
                 </form>
               </div>
@@ -143,7 +143,7 @@ class Login extends Component {
                   <label class="sr-only" for="inlineFormInput">Name</label>
                   <input type="text" value={this.state.newNom} onChange={this.handleInputChange} name="newNom" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name"></input>
                   <label class="sr-only" for="inlineFormInputGroup">Password</label>
-                  <input type="text" value={this.state.newPass} onChange={this.handleInputChange} name="newPass" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
+                  <input type="password" value={this.state.newPass} onChange={this.handleInputChange} name="newPass" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Password"></input>
                   <button type="submit" onClick={this.handleRegistration} class="btn btn-primary">Register</button>
                 </form>
               </div>
