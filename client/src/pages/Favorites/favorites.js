@@ -34,11 +34,12 @@ class Favorite extends Component {
               <Col size="md-3">
                 <div className="login-bkg">
                   <form className="form">
-                  <a href={article.url} target="_blank">
-                    <strong className="login-title">{article.title} by {article.author}</strong>
-                  </a>
-                  <p>{article.text.length > maxLength ? (article.text.substring(0, 600) + "...") : article.text}</p>
-                  <DeleteBtn onClick={() => this.props.dispatch({ type: 'REMOVE_FAVORITE' ,favorite: article})} />
+                    <a href={article.url} target="_blank">
+                      <p className="login-title"><strong >{article.title} by {article.author}</strong></p>
+                    </a>
+                  <p>{article.text.length > maxLength ? (article.text.substring(0, 600) + "...") : article.text}
+                    <DeleteBtn onClick={() => this.props.dispatch({ type: 'REMOVE_FAVORITE' ,favorite: article})} />
+                  </p>
                   </form>
                 </div>
               </Col>
