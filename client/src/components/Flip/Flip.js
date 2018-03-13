@@ -26,11 +26,10 @@ const Flip = ({ articles, maxLength = 1800, linkLength = 50, dispatch }) =>
           <div className="col-md-12">
             <h1 className="title">{a.title}</h1>
             <hr />
+            <a href={a.url} target="_blank">
             <img src={a.thread.main_image} height="auto" width="auto" style={{float: "left", marginRight: "10px", maxWidth: "500px"}} />
+            </a>
             <p>{a.text.length > maxLength ? (a.text.substring(0, 1800) + "...") : a.text}</p>
-            <p> Read the article here:
-        <a href={a.url}>{a.url.length > linkLength ? (a.url.substring(0, 50) + "...") : a.url}</a>
-            </p>
             <button
             onClick={() => dispatch({ type: 'ADD_FAVORITE', favorite: a})}> Add to favorites </button>
           </div>
