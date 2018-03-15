@@ -4,3 +4,7 @@
     margin: 0 50px;
 
 }
+
+a:hover {
+    text-decoration: none;
+}
