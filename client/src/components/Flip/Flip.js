@@ -24,7 +24,9 @@ const Flip = ({ articles, maxLength = 1800, linkLength = 50, dispatch }) =>
       return (
         <article>
           <div className="col-md-12">
-            <h1 className="title">{a.title}</h1>
+            <a href={a.url} target="_blank">
+              <h1 className="title">{a.title}</h1>
+            </a>
             <hr />
             <a href={a.url} target="_blank">
             <img src={a.thread.main_image} height="auto" width="auto" style={{float: "left", marginRight: "10px", maxWidth: "500px"}} />
