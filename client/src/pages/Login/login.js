@@ -32,7 +32,7 @@ class Login extends Component {
           
       //   }
       console.log(this.state);
-      var apiBaseUrl = "http://localhost:3000/api/users";
+      var apiBaseUrl = "/api/users";
       let payload={
         "nom":this.state.nom,
         "password":this.state.password
@@ -63,7 +63,7 @@ class Login extends Component {
     handleRegistration = event => {
       event.preventDefault();
       console.log(this.state);
-      var apiBaseUrl = "http://localhost:3000/api/users";
+      var apiBaseUrl = "/api/users";
       let payload={
         "nom":this.state.newNom,
         "password":this.state.newPass
