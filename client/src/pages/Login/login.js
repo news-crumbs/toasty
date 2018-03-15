@@ -80,7 +80,7 @@ class Login extends Component {
             .then(function(response){
               console.log(response);
               console.log(response.status);
-              if(response.data !== null){
+              if(!response.data === true && typeof response.data === "object"){
                 console.log(`username ${payload.nom} taken`);
                 alert(`username ${payload.nom} taken`); 
                 // too much scoping isssues to use this.setState??
