@@ -20,17 +20,6 @@ class Login extends Component {
 
     handleLogin = event => {
       event.preventDefault();
-      // console.log('checking DB for user');
-      // var apiBaseUrl = "http://localhost:3000/api/users";
-      // let brah={
-      //   "nom":this.state.nom,
-      //   "password":this.state.password
-      // };
-      // axios.get(apiBaseUrl, brah.nom)
-      //   .then(function(response){
-      //     console.log(response.data);
-          
-      //   }
       console.log(this.state);
       var apiBaseUrl = "/api/users";
       let payload={
@@ -83,11 +72,6 @@ class Login extends Component {
               if(!response.data === true && typeof response.data === "object"){
                 console.log(`username ${payload.nom} taken`);
                 alert(`username ${payload.nom} taken`); 
-                // too much scoping isssues to use this.setState??
-                // this.setState({
-                //   newNom: "",
-                //   newPass: ""
-                // });
               } else {
                 axios.post(apiBaseUrl, payload)
                   .then(function (response) {
